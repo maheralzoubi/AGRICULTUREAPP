@@ -7,9 +7,9 @@ class AuthController extends GetxController {
   //textEditing login
 
   TextEditingController email =
-      TextEditingController(text: "ahmad.je1999@gmail.com");
+      TextEditingController(text: "deyaa.pozan@gmail.com");
   TextEditingController password =
-      TextEditingController(text: "dc7bfc2y1rl4k7u5m4");
+      TextEditingController(text: "dc7bfc2pl5l7b3v480");
 
   // form global key ...
   GlobalKey<FormState> keyState = GlobalKey<FormState>();

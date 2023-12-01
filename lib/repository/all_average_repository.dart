@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:agricultureapp/constants/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -29,6 +30,9 @@ class Defaulrrepository {
   }
 
   Future AverageAllNodes() async {
+    dynamic userId = await SharedPreferenceHelper.get("userId");
+
+    print("userId \t $userId");
     try {
       var headers = {
         "Content-Type": "application/json",
@@ -37,7 +41,7 @@ class Defaulrrepository {
 
       var response = await http.get(
         Uri.parse(Url.serverUrl +
-            '/api/getDailyAverageReadingsForAllNodes/user_dc7bfca18xl44lir30'),
+            '/api/getDailyAverageReadingsForAllNodes/user_$userId'),
         headers: headers,
       );
       final dynamic data = jsonDecode(response.body);

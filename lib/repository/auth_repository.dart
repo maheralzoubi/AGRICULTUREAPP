@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:agricultureapp/constants/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -27,6 +28,9 @@ class AuthRepository {
         headers: headers,
       );
       final dynamic loginResponse = jsonDecode(response.body);
+
+      await SharedPreferenceHelper.setString("userId",
+          loginResponse['message']['idToken']['payload']['custom:id']);
 
       return loginResponse;
     } catch (e) {
